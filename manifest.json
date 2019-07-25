@@ -1,0 +1,39 @@
+{
+  "name": "SpeakerDeck Theater",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "Enter a distraction free content viewing experience on SpeakerDeck.",
+  "background": {
+    "scripts": ["eventPage.js"],
+    "persistent": false
+  },
+  "icons": {
+    "19": "images/19x19.png",
+    "38": "images/38x38.png",
+    "48": "images/48x48.png",
+    "128": "images/128x128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://speakerdeck.com/*"],
+      "js": ["jquery-3.4.1.min.js", "content.js"],
+      "css": ["styles.css", "css/animate.css"]
+    }
+  ],
+  "browser_action": {
+    "default_icon": {
+      "19": "images/19x19.png",
+      "38": "images/38x38.png",
+      "48": "images/48x48.png",
+      "128": "images/128x128.png"
+    },
+    "default_title": "Start SpeakerDeck Theater"
+  },
+  "web_accessible_resources": ["sd-theater.html", "images/*.png"],
+  "commands": {
+    "toggle-sd-theater": {
+      "suggested_key": { "default": "Alt+Shift+S" },
+      "description": "Toggle SD Theater"
+    }
+  }
+}
